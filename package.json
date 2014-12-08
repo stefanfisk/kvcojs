@@ -1,0 +1,17 @@
+{
+  "name": "key-value-coding-observing",
+  "version": "0.0.0",
+  "description": "Cocoa Key Value Coding and Key Value Observing analogues",
+  "scripts": {
+    "test": "./node_modules/.bin/testem"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "mocha": "^2.0.1",
+    "sinon": "^1.12.1"
+  },
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "rx": "^2.3.20"
+  }
+}
