@@ -199,6 +199,17 @@ describe('getValueForKeyPath()', function() {
 
     expect(value).to.equal('value');
   });
+
+  it('should return `null` when getting nested with missing subpath value', function() {
+    var obj = {
+      foo: {
+      }
+    };
+
+    var value = getValueForKeyPath(obj, 'foo.bar.baz');
+
+    expect(value).to.equal(null);
+  });
 });
 
 describe('setValueForKeyPath()', function() {
@@ -232,5 +243,14 @@ describe('setValueForKeyPath()', function() {
     var value = setValueForKeyPath(obj, 'foo.bar', 'baz');
 
     expect(obj.foo.bar).to.equal('baz');
+  });
+
+  it('should throw when setting nested with missing subpath value', function() {
+    var obj = {
+      foo: {
+      }
+    };
+
+    expect(function() { setValueForKeyPath(obj, 'foo.bar.baz'); }).to.throw();
   });
 });
