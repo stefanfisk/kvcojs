@@ -1,7 +1,7 @@
 {
-  "name": "key-value-coding-observing",
+  "name": "kvcojs",
   "version": "0.0.0",
-  "description": "Cocoa Key Value Coding and Key Value Observing analogues",
+  "description": "Reactive Cocoa Key Value Coding and Key Value Observing analogues for Javascript",
   "scripts": {
     "test": "./node_modules/.bin/testem"
   },
