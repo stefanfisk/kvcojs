@@ -1,5 +1,5 @@
 {
-  "name": "kvcojs",
+  "name": "kvco",
   "version": "0.0.0",
   "description": "Reactive Cocoa Key Value Coding and Key Value Observing analogues for Javascript",
   "scripts": {

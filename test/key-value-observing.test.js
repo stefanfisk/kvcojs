@@ -4,12 +4,11 @@ var Rx = require('rx');
 var keyValueCoding = require('../lib/key-value-coding');
 var setValueForKey = keyValueCoding.setValueForKey;
 
-var keyValueObserving = require('../lib/key-value-observing');
-var KeyValueObservingMixin = keyValueObserving.mixin;
+var KeyValueObservable = require('../lib/key-value-observing').KeyValueObservable;
 
 describe('mixin', function() {
   var Obj = function() {};
-  _.assign(Obj.prototype, KeyValueObservingMixin);
+  _.assign(Obj.prototype, KeyValueObservable.prototype);
 
   var obj;
 

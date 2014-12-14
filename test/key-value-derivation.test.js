@@ -4,20 +4,20 @@ var Rx = require('rx');
 var keyValueCoding = require('../lib/key-value-coding');
 var getValueForKey = keyValueCoding.getValueForKey;
 
-var KeyValueDerivationMixin = require('../lib/key-value-derivation').mixin;
+var KeyValueDeriving = require('../lib/key-value-derivation').KeyValueDeriving;
 
 describe('KeyValueDerivationMixin', function() {
   var Obj = function() {
     this.fooSubject = new Rx.BehaviorSubject('initialValue');
 
-    this.initDerivedKeys();
+    KeyValueDeriving.call(this);
   };
   Obj.prototype.derivedKeys = {
     foo: function() {
       return this.fooSubject;
     }
   };
-  _.assign(Obj.prototype, KeyValueDerivationMixin);
+  _.assign(Obj.prototype, KeyValueDeriving.prototype);
 
   var obj;
 
