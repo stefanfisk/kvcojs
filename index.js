@@ -1,6 +1,6 @@
 module.exports = {
-  keyPath: require('./lib/key-path'),
-  keyValueCoding: require('./lib/key-value-coding'),
-  keyValueObserving: require('./lib/key-value-observing'),
-  keyValueDerivation: require('./lib/key-value-derivation')
+  keyPath: require('./key-path'),
+  keyValueCoding: require('./key-value-coding'),
+  keyValueObserving: require('./key-value-observing'),
+  keyValueDerivation: require('./key-value-derivation')
 };

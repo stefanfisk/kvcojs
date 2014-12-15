@@ -1,4 +1,4 @@
-var keyValueCoding = require('../lib/key-value-coding');
+var keyValueCoding = require('../key-value-coding');
 var getValueForKey = keyValueCoding.getValueForKey;
 var setValueForKey = keyValueCoding.setValueForKey;
 var getValueForKeyPath = keyValueCoding.getValueForKeyPath;

@@ -1,4 +1,4 @@
-var splitKeyPath = require('../lib/key-path').splitKeyPath;
+var splitKeyPath = require('../key-path').splitKeyPath;
 
 describe('splitKeyPath()', function() {
   it('should split dot notaded strings', function() {

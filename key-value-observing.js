@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var keyValueCoding = require('../lib/key-value-coding');
+var keyValueCoding = require('./key-value-coding');
 var getValueForKey = keyValueCoding.getValueForKey;
 var getValueForKeyPath = keyValueCoding.getValueForKeyPath;
 var Rx = require('rx');

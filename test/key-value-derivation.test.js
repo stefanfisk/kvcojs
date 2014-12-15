@@ -1,10 +1,10 @@
 var _ = require('lodash');
 var Rx = require('rx');
 
-var keyValueCoding = require('../lib/key-value-coding');
+var keyValueCoding = require('../key-value-coding');
 var getValueForKey = keyValueCoding.getValueForKey;
 
-var KeyValueDeriving = require('../lib/key-value-derivation').KeyValueDeriving;
+var KeyValueDeriving = require('../key-value-derivation').KeyValueDeriving;
 
 describe('KeyValueDerivationMixin', function() {
   var Obj = function() {

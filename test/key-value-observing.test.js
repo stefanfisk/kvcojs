@@ -1,10 +1,10 @@
 var _ = require('lodash');
 var Rx = require('rx');
 
-var keyValueCoding = require('../lib/key-value-coding');
+var keyValueCoding = require('../key-value-coding');
 var setValueForKey = keyValueCoding.setValueForKey;
 
-var KeyValueObservable = require('../lib/key-value-observing').KeyValueObservable;
+var KeyValueObservable = require('../key-value-observing').KeyValueObservable;
 
 describe('mixin', function() {
   var Obj = function() {};
