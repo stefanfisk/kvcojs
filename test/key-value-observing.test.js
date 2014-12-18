@@ -4,9 +4,11 @@ var Rx = require('rx');
 var keyValueCoding = require('../key-value-coding');
 var setValueForKey = keyValueCoding.setValueForKey;
 
-var KeyValueObservable = require('../key-value-observing').KeyValueObservable;
+var keyValueObserving = require('../key-value-observing')
+var KeyValueObservable = keyValueObserving.KeyValueObservable;
+var defineObservableProperty = keyValueObserving.defineObservableProperty;
 
-describe('mixin', function() {
+describe('KeyValueObservable', function() {
   var Obj = function() {};
   _.assign(Obj.prototype, KeyValueObservable.prototype);
 
@@ -156,5 +158,42 @@ describe('mixin', function() {
       expect(obj._keyObservers).to.be.null();
       expect(obj.foo._keyObservers).to.be.null();
     });
+  });
+});
+
+describe('defineObservableProperty()', function() {
+  function Obj() {};
+  Obj.prototype.didChangeValueForKey = function() {};
+      var obj = {
+      didChangeValueForKey: function() {}
+    };
+
+  defineObservableProperty(Obj.prototype, 'foo');
+
+  it('prop returns undefined by default', function() {
+    var obj = new Obj();
+
+    expect(obj.foo).to.be.undefined();
+  });
+
+  it('prop returns set value', function() {
+    var obj = new  Obj();
+
+    obj.foo = 'bar'
+
+    expect(obj.foo).to.equal('bar');
+  });
+
+  it('setting prop calls didChangeValueForKey()', function() {
+    var obj = new Obj();
+    var mock = sinon.mock(obj);
+
+    mock.expects('didChangeValueForKey').withArgs('foo', 'bar').once();
+
+    defineObservableProperty(obj, 'foo');
+
+    obj.foo = 'bar';
+
+    mock.verify();
   });
 });

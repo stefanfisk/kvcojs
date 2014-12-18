@@ -106,6 +106,24 @@ KeyValueObservable.prototype.observableForKeyPath = function(keyPath) {
   return this.observableForKey(currentKey);
 };
 
+function defineObservableProperty(obj, prop) {
+  var _prop = '_' + prop;
+
+  Object.defineProperty(obj, _prop, {writable: true});
+
+  Object.defineProperty(obj, prop, {
+    get: function() {
+      return this[_prop];
+    },
+    set: function(value) {
+      this[_prop] = value;
+
+      this.didChangeValueForKey(prop, value);
+    }
+  });
+}
+
 module.exports = {
-  KeyValueObservable: KeyValueObservable
+  KeyValueObservable: KeyValueObservable,
+  defineObservableProperty: defineObservableProperty
 };
