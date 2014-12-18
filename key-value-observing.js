@@ -122,8 +122,14 @@ function defineObservableProperty(obj, prop) {
     }
   });
 }
+function defineObservableProperties(obj, props) {
+  for (var i, prop; prop = props[i]; i++) {
+    defineObservableProperty(obj, prop);
+  }
+}
 
 module.exports = {
   KeyValueObservable: KeyValueObservable,
-  defineObservableProperty: defineObservableProperty
+  defineObservableProperty: defineObservableProperty,
+  defineObservableProperties: defineObservableProperties
 };
